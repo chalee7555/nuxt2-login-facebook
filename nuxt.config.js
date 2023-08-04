@@ -18,7 +18,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  mode: "universal", target: "static",
+  routeRules: {
+    '/examples/*': { redirect: '/redirect-route' },
+    '/modify-headers-route': { headers: { 'x-magic-of': 'nuxt and vercel' } },
+    '/spa': { ssr: false },
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
